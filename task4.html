@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarthak Bhamare | Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: background-color 0.3s;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        nav .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav .nav-links li {
+            font-size: 1.2em;
+        }
+
+        nav .nav-links li a:hover {
+            color: #00e0ff;
+        }
+
+        /* Home Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        #home .home-content {
+            animation: fadeIn 2s;
+        }
+
+        #home h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        #home .highlight {
+            color: #00e0ff;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        #home p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        #home .btn {
+            padding: 15px 30px;
+            background-color: #00e0ff;
+            color: #121212;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        #home .btn:hover {
+            background-color: #00b3cc;
+        }
+
+        #home .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            animation: bounce 2s infinite;
+        }
+
+        /* About Me Section */
+        #about {
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        #about .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        #about .profile-img {
+            flex: 1;
+            animation: fadeInLeft 2s;
+        }
+
+        #about .profile-img img {
+            width: 100%;
+            border-radius: 50%;
+            border: 5px solid #00e0ff;
+        }
+
+        #about .about-text {
+            flex: 2;
+            animation: fadeInRight 2s;
+        }
+
+        #about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        #about .btn {
+            padding: 15px 30px;
+            background-color: #00e0ff;
+            color: #121212;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        #about .btn:hover {
+            background-color: #00b3cc;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #121212;
+        }
+
+        #skills h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .skill-item {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeInUp 2s;
+        }
+
+        .skill-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background-color: #333;
+            border-radius: 50px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #00e0ff;
+            border-radius: 50px;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        #projects h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project-item {
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: fadeInUp 2s;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+        }
+
+        .project-content .btn {
+            padding: 10px 20px;
+            background-color: #00e0ff;
+            color: #121212;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .project-content .btn:hover {
+            background-color: #00b3cc;
+        }
+
+        /* Certifications Section */
+        #certifications {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        #certifications h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .certification-item {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            animation: fadeInUp 2s;
+        }
+
+        .certification-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .certification-item p {
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        #contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: #1f1f1f;
+            border: none;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background-color: #333;
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+            background-color: #00e0ff;
+            color: #121212;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #00b3cc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f1f1f;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #00e0ff;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #00b3cc;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff, 0 0 30px #00e0ff, 0 0 40px #00e0ff;
+            }
+            to {
+                text-shadow: 0 0 20px #00e0ff, 0 0 30px #00e0ff, 0 0 40px #00e0ff, 0 0 50px #00e0ff;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                Sarthak Bhamare
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="home-content">
+                <h1>Welcome to My Portfolio</h1>
+                <p>I am a <span class="highlight">Web Developer</span> with a passion for creating beautiful and functional websites.</p>
+                <a href="#about" class="btn">Learn More About Me</a>
+            </div>
+            <div class="scroll-down">
+                &#8595; Scroll Down
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container about-content">
+            <div class="profile-img">
+                <img src="profile.jpg" alt="Sarthak Bhamare">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hello! I'm Sarthak Bhamare, a web developer specializing in front-end development. I have experience working with various web technologies to build responsive and dynamic websites.</p>
+                <p>I'm passionate about learning new technologies and continuously improving my skills to create more efficient and user-friendly websites.</p>
+                <a href="#projects" class="btn">View My Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>C & C++</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>HTML & CSS</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>Python</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <img src="project1.jpg" alt="Project 1">
+                    <div class="project-content">
+                        <h3>Project 1</h3>
+                        <p>Project description goes here. This is where you can briefly describe what this project is about and the technologies used.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="project2.jpg" alt="Project 2">
+                    <div class="project-content">
+                        <h3>Project 2</h3>
+                        <p>Project description goes here. This is where you can briefly describe what this project is about and the technologies used.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="project3.jpg" alt="Project 3">
+                    <div class="project-content">
+                        <h3>Project 3</h3>
+                        <p>Project description goes here. This is where you can briefly describe what this project is about and the technologies used.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="project4.jpg" alt="Project 4">
+                    <div class="project-content">
+                        <h3>Project 4</h3>
+                        <p>Project description goes here. This is where you can briefly describe what this project is about and the technologies used.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certifications-list">
+                <div class="certification-item">
+                    <h3>Tata Group - Data Visualisation: Empowering Business with Effective Insights</h3>
+                    <p>Obtained from Forage. This certification covers effective data visualization techniques and tools.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Google Analytics Certification</h3>
+                    <p>Obtained from Google Digital Academy (Skillshop). This certification demonstrates proficiency in Google Analytics.</p>
+                </div>
+                <!-- Add more certifications here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form action="submit_form.php" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:sarthakbhamare12@gmail.com">sarthakbhamare12@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/sarthak-bhamare-899148288" target="_blank">linkedin.com/in/sarthak-bhamare-899148288</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sarthak Bhamare. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/sarthak-bhamare-899148288" target="_blank">LinkedIn</a>
+                <!-- Add more social links if needed -->
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
